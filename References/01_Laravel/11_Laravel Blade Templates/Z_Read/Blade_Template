@@ -1,0 +1,60 @@
+Laravel - Blade Templates
+Advertisements
+ Previous Page Next Page  
+Laravel 5.1 introduces the concept of using Blade, a templating engine to design a unique layout. The layout thus designed can be used by other views, and includes a consistent design and structure.
+
+When compared to other templating engines, Blade is unique in the following ways −
+
+It does not restrict the developer from using plain PHP code in views.
+
+The blade views thus designed, are compiled and cached until they are modified.
+
+Welcome Blade
+The complete directory structure of Laravel is shown in the screenshot given here.
+
+You can observe that all views are stored in the resources/views directory and the default view for Laravel framework is welcome.blade.php.
+
+Please note that other blade templates are also created similarly.
+
+Steps for Creating a Blade Template Layout
+You will have to use the following steps to create a blade template layout −
+
+Step 1
+Create a layout folder inside the resources/views folder. We are going to use this folder to store all layouts together.
+
+Create a file name master.blade.php which will have the following code associated with it −
+
+<html>
+   <head>
+      <title>DemoLaravel - @yield('title')</title>
+   </head>
+   <body>
+      @yield('content')
+   </body>
+Step 2
+In this step, you should extend the layout. Extending a layout involves defining the child elements. Laravel uses the Blade @extends directive for defining the child elements.
+
+When you are extending a layout, please note the following points −
+
+Views defined in the Blade Layout injects the container in a unique way.
+
+Various sections of view are created as child elements.
+
+Child elements are stored in layouts folder as child.blade.php
+
+An example that shows extending the layout created above is shown here −
+
+@extends('layouts.app')
+@section('title', 'Page Title')
+@section('sidebar')
+   @parent
+<p>This refers to the master sidebar.</p>
+@endsection
+@section('content')
+<p>This is my body content.</p>
+@endsection
+Step 3
+To implement the child elements in views, you should define the layout in the way it is needed.
+
+Landing Page
+Observe the screenshot shown here. You can find that each of links mentioned in the landing page are hyperlinks. Please note that you can also create them as child elements with the help of blade templates by using the procedure given above.
