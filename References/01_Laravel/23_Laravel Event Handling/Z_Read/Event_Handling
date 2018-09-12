@@ -1,0 +1,95 @@
+
+Laravel - Event Handling
+Advertisements
+ Previous Page Next Page  
+Events provide a simple observer implementation which allows a user to subscribe and listen to various events triggered in the web application. All the event classes in Laravel are stored in the app/Events folder and the listeners are stored in the app/Listeners folder.
+
+The artisan command for generating events and listeners in your web application is shown below −
+
+php artisan event:generate
+This command generates the events and listeners to the respective folders as discussed above.
+
+Event Generator
+Events and Listeners serve a great way to decouple a web application, since one event can have multiple listeners which are independent of each other. The events folder created by the artisan command includes the following two files: event.php and SomeEvent.php. They are shown here −
+
+Event.php
+<?php
+namespace App\Events;
+abstract class Event{
+   //
+}
+As mentioned above, event.php includes the basic definition of class Event and calls for namespace App\Events. Please note that the user defined or custom events are created in this file.
+
+SomeEvent.php
+<?php
+
+namespace App\Events;
+
+use App\Events\Event;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+
+class SomeEvent extends Event{
+   use SerializesModels;
+   /**
+      * Create a new event instance.
+      *
+      * @return void
+   */
+   
+   public function __construct(){
+      //
+   }
+   
+   /**
+      * Get the channels the event should be broadcast on.
+      *
+      * @return array
+   */
+   
+   public function broadcastOn(){
+      return [];
+   }
+}
+Observe that this file uses serialization for broadcasting events in a web application and that the necessary parameters are also initialized in this file.
+
+For example, if we need to initialize order variable in the constructor for registering an event, we can do it in the following way −
+
+public function __construct(Order $order){
+   $this->order = $order;
+}
+Listeners
+Listeners handle all the activities mentioned in an event that is being registered. The artisan command event:generate creates all the listeners in the app/listeners directory. The Listeners folder includes a file EventListener.php which has all the methods required for handling listeners.
+
+EventListener.php
+<?php
+
+namespace App\Listeners;
+
+use App\Events\SomeEvent;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+class EventListener{
+   /**
+      * Create the event listener.
+      *
+      * @return void
+   */
+   
+   public function __construct(){
+      //
+   }
+
+   /**
+      * Handle the event.
+      *
+      * @param SomeEvent $event
+      * @return void
+   */
+   
+   public function handle(SomeEvent $event){
+      //
+   }
+}
+As mentioned in the code, it includes handle function for managing various events. We can create various independent listeners that target a single event.
