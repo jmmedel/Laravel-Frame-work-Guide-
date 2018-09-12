@@ -1,0 +1,71 @@
+
+Laravel - Encryption
+Advertisements
+ Previous Page Next Page  
+Encryption is a process of converting a plain text to a message using some algorithms such that any third user cannot read the information. This is helpful for transmitting sensitive information because there are fewer chances for an intruder to target the information transferred.
+
+Encryption is performed using a process called Cryptography. The text which is to be encrypted is termed as Plain Text and the text or the message obtained after the encryption is called Cipher Text. The process of converting cipher text to plain text is called Decryption.
+
+Laravel uses AES-256 and AES-128 encrypter, which uses Open SSL for encryption. All the values included in Laravel are signed using the protocol Message Authentication Code so that the underlying value cannot be tampered with once it is encrypted.
+
+Configuration
+The command used to generate the key in Laravel is shown below −
+
+php artisan key:generate
+Please note that this command uses the PHP secure random bytes’ generator and you can see the output as shown in the screenshot given below −
+
+Artisan Key
+The command given above helps in generating the key which can be used in web application. Observe the screenshot shown below −
+
+Note
+The values for encryption are properly aligned in the config/app.php file, which includes two parameters for encryption namely key and cipher. If the value using this key is not properly aligned, all the values encrypted in Laravel will be insecure.
+
+Encryption Process
+Encryption of a value can be done by using the encrypt helper in the controllers of Laravel class. These values are encrypted using OpenSSL and AES-256 cipher. All the encrypted values are signed with Message Authentication code (MAC) to check for any modifications of the encrypted string.
+
+defaultCommand
+The code shown below is mentioned in a controller and is used to store a secret or a sensitive message.
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class DemoController extends Controller{
+   **
+      * Store a secret message for the user.
+      *
+      * @param Request $request
+      * @param int $id
+      * @return Response
+   */
+   
+   public function storeSecret(Request $request, $id){
+      $user = User::findOrFail($id);
+      $user->fill([
+         'secret' => encrypt($request->secret)
+      ])->save();
+   }
+}
+Decryption Process
+Decryption of the values is done with the decrypt helper. Observe the following lines of code −
+
+use Illuminate\Contracts\Encryption\DecryptException;
+
+// Exception for decryption thrown in facade
+try {
+   $decrypted = decrypt($encryptedValue);
+} catch (DecryptException $e) {
+   //
+}
+Please note that if the process of decryption is not successful because of invalid MAC being used, then an appropriate exception is thrown.
+
+
+
+
+
+
+
+
