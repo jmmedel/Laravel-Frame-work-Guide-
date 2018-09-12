@@ -1,0 +1,66 @@
+
+Laravel - Errors and Logging
+Advertisements
+ Previous Page Next Page  
+This chapter deals with errors and logging in Laravel projects and how to work on them.
+
+Errors
+A project while underway, is borne to have a few errors. Errors and exception handling is already configured for you when you start a new Laravel project. Normally, in a local environment we need to see errors for debugging purposes. We need to hide these errors from users in production environment. This can be achieved with the variable APP_DEBUG set in the environment file .env stored at the root of the application.
+
+For local environment the value of APP_DEBUG should be true but for production it needs to be set to false to hide errors.
+
+Note − After changing the APP_DEBUG variable, you should restart the Laravel server.
+
+Logging
+Logging is an important mechanism by which system can log errors that are generated. It is useful to improve the reliability of the system. Laravel supports different logging modes like single, daily, syslog, and errorlog modes. You can set these modes in config/app.php file.
+
+'log' => 'daily'
+You can see the generated log entries in storage/logs/laravel.log file.
+
+Creating a custom log file
+To create a custom log file, you should take the following steps −
+
+Step 1 − In this step, you should create a custom log file in Laravel using the Log façade. The façade can be declared by simply using the use keyword in controller. It is shown as follows −
+
+<?php
+
+use Log;
+class LoginController extends Controller{
+   public function FuncName(Request $request){
+   
+      // log something to storage/logs/laravel.log
+      Log::info(['Request'=>$request]);}
+   }
+?>
+Here, the function name FuncName will help in creating logs by sending parameter Log::info within the body of function.
+
+Step 2 − If there is a need to save this file separately, you should do it at this step. For this, you can use a demo function like useDailyFiles() just before the inclusion of log line as shown here −
+
+<?php
+
+use Log;
+class LoginController extends Controller{
+   public function FuncName(Request $request){
+      
+      // log something to storage/logs/debug.log
+      Log::useDailyFiles(storage_path().'/logs/debug.log');
+      Log::info(['Request'=>$request]);
+   }
+}
+?>
+All the logs will be tracked in file debug.log. The errors noted in the logs will be useful for development.
+
+Step 3 − In this step, you deal with the logger in Laravel, which includes various types apart from Log::info mentioned in the example given.
+
+Log::emergency($error);
+Log::alert($error);
+Log::critical($error);
+Log::error($error);
+Log::warning($error);
+Log::notice($error);
+Log::info($error);
+Log::debug($error);
+The types of errors which can be included in the log files are: emergency, alert, critical, error, warning, notice, info and debug.
+
+Based on the logs created, the improvements of web application are considered.
+
