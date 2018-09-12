@@ -1,0 +1,48 @@
+
+
+Laravel - Hashing
+Advertisements
+ Previous Page Next Page  
+Hashing is the process of transforming a string of characters into a shorter fixed value or a key that represents the original string. Laravel uses the Hash facade which provides a secure way for storing passwords in a hashed manner.
+
+Basic Usage
+The following screenshot shows how to create a controller named passwordController which is used for storing and updating passwords −
+
+Password
+The following lines of code explain the functionality and usage of the passwordController −
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller
+
+class passwordController extends Controller{
+   /**
+      * Updating the password for the user.
+      *
+      * @param Request $request
+      * @return Response
+   */
+   
+   public function update(Request $request){
+      // Validate the new password length...
+      $request->user()->fill([
+         'password' => Hash::make($request->newPassword) // Hashing passwords
+      ])->save();
+   }
+}
+The hashed passwords are stored using make method. This method allows managing the work factor of the bcrypt hashing algorithm, which is popularly used in Laravel.
+
+Verification of Password against Hash
+You should verify the password against hash to check the string which was used for conversion. For this you can use the check method. This is shown in the code given below −
+
+if (Hash::check('plain-text', $hashedPassword)) {
+   // The passwords match...
+}
+Note that the check method compares the plain-text with the hashedPassword variable and if the result is true, it returns a true value.
+
+
+
