@@ -1,0 +1,36 @@
+
+Laravel - Working With Database
+Advertisements
+ Previous Page Next Page  
+Laravel has made processing with database very easy. Laravel currently supports following 4 databases −
+
+MySQL
+Postgres
+SQLite
+SQL Server
+The query to the database can be fired using raw SQL, the fluent query builder, and the Eloquent ORM. To understand the all CRUD (Create, Read, Update, Delete) operations with Laravel, we will use simple student management system.
+
+Connecting to Database
+Configure the database in config/database.php file and create the college database with structure in MySQL as shown in the following table.
+
+Database: College
+
+Table: student
+
+Column Name	Column Datatype	Extra
+Id	int(11)	Primary key | Auto increment
+Name	varchar(25)	
+We will see how to add, delete, update and retrieve records from database using Laravel in student table.
+
+Sr.No.	Records & Description
+1	Insert Records
+We can insert the record using the DB facade with insert method.
+
+2	Retrieve Records
+After configuring the database, we can retrieve the records using the DB facade with select method.
+
+3	Update Records
+We can update the records using the DB facade with update method.
+
+4	Delete Records
+We can delete the record using the DB facade with the delete method.
