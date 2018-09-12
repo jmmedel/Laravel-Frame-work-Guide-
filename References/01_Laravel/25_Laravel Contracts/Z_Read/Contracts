@@ -1,0 +1,73 @@
+
+
+Laravel - Contracts
+Advertisements
+ Previous Page Next Page  
+Laravel contracts are a set of interfaces with various functionalities and core services provided by the framework.
+
+For example, Illuminate\Contracts\Queue\Queue contract uses a method which is needed for queuing jobs and Illuminate\Contracts\Mail\Mailer uses the method for sending emails.
+
+Every contract defined includes corresponding implementation of the framework. All the Laravel contracts are available in the GitHub repository as mentioned below −
+
+https://github.com/illuminate/contracts
+
+This repository provides a variety of contracts available in the Laravel framework which can be downloaded and used accordingly.
+
+Important Points
+While working with Laravel contracts, please note the following important points −
+
+It is mandatory to define facades in the constructor of a class.
+
+Contracts are explicitly defined in the classes and you need not define the contracts in constructors.
+
+Example
+Consider the contract used for Authorization in Laravel which is mentioned below −
+
+<?php
+
+namespace Illuminate\Contracts\Auth\Access;
+
+interface Authorizable{
+   /**
+      * Determine if the entity has a given ability.
+      *
+      * @param string $ability
+      * @param array|mixed $arguments
+      * @return bool
+   */
+   public function can($ability, $arguments = []);
+}
+The contract uses a function can which includes a parameter named ability and arguments which uses the user identification in the form of an array.
+
+You will have to define a contract as shown in the syntax below −
+
+interface <contract-name>
+Contracts are used like facades for creating robust, well-tested Laravel applications. There are various practical differences with usage of contracts and facades.
+
+The following code shows using a contract for caching a repository −
+
+<?php
+
+namespace App\Orders;
+use Illuminate\Contracts\Cache\Repository as Cache;
+
+class Repository{
+   /**
+      * The cache instance.
+   */
+   
+   protected $cache;
+   
+   /**
+      * Create a new repository instance.
+      *
+      * @param Cache $cache
+      * @return void
+   */
+   
+   public function __construct(Cache $cache){
+      $this->cache = $cache;
+   }
+}
+Contract contains no implementation and new dependencies; it is easy to write an alternative implementation of a specified contract, thus a user can replace cache implementation without modifying any code base.
+
