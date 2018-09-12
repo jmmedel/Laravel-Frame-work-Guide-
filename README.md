@@ -10,9 +10,5 @@ Laravel Frame work Guide
 2. php artisan key:generate 
 3. php artisan serve 
 
-# How to Reset Migration
-Rollback all migrations and run them all again
-php artisan migrate:refresh
-
 
 
