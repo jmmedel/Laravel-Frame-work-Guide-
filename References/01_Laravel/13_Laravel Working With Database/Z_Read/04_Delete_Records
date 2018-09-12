@@ -1,0 +1,91 @@
+
+
+
+Laravel - Delete Records
+Advertisements
+ Previous Page Next Page  
+We can delete the record using the DB facade with the delete method. The syntax of delete method is shown in the following table.
+
+Syntax	int delete(string $query, array $bindings = array())
+Parameters	
+$query(string) − query to execute in database
+$bindings(array) − values to bind with queries
+Returns	int
+Description	Run a delete statement against the database.
+Example
+Step 1 − Execute the below command to create a controller called StudDeleteController.
+
+php artisan make:controller StudDeleteController --plain
+Step 2 − After successful execution, you will receive the following output −
+
+Delete Records
+Step 3 − Copy the following code to file
+
+app/Http/Controllers/StudDeleteController.php
+
+app/Http/Controllers/StudDeleteController.php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class StudDeleteController extends Controller {
+   public function index(){
+      $users = DB::select('select * from student');
+      return view('stud_delete_view',['users'=>$users]);
+   }
+   public function destroy($id) {
+      DB::delete('delete from student where id = ?',[$id]);
+      echo "Record deleted successfully.<br/>";
+      echo '<a href = "/delete-records">Click Here</a> to go back.';
+   }
+}
+Step 4 − Create a view file called
+
+resources/views/stud_delete_view.blade.php and copy the following code in that file.
+
+resources/views/stud_delete_view.blade.php
+
+<html>
+   
+   <head>
+      <title>View Student Records</title>
+   </head>
+   
+   <body>
+      <table border = "1">
+         <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Edit</td>
+         </tr>
+         @foreach ($users as $user)
+         <tr>
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->name }}</td>
+            <td><a href = 'delete/{{ $user->id }}'>Delete</a></td>
+         </tr>
+         @endforeach
+      </table>
+   
+   </body>
+</html>
+Step 5 − Add the following lines in app/Http/routes.php.
+
+app/Http/routes.php
+
+Route::get('delete-records','StudDeleteController@index');
+Route::get('delete/{id}','StudDeleteController@destroy');
+Step 6 −The output will appear as shown in the following image.
+
+Name Edit
+Step 7 − Click on delete link to delete that record from database. You will be redirected to a page where you will see a message as shown in the following image.
+
+Record Deleted
+Step 8 − Click on Click Here link and you will be redirected to a page where you will see all the records except the deleted one.
+

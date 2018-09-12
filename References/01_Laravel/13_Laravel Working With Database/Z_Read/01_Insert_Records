@@ -1,0 +1,87 @@
+Laravel - Insert Records
+Advertisements
+ Previous Page Next Page  
+We can insert the record using the DB facade with insert method. The syntax of insert method is as shown in the following table.
+
+Syntax	bool insert(string $query, array $bindings = array())
+Parameters	
+$query(string) − query to execute in database
+$bindings(array) − values to bind with queries
+Returns	bool
+Description	Run an insert statement against the database.
+Example
+Step 1 − Execute the below command to create a controller called StudInsertController
+
+php artisan make:controller StudInsertController --plain
+Step 2 − After the successful execution of step 1, you will receive the following output −
+
+StudInsertController
+Step 3 − Copy the following code to file
+
+app/Http/Controllers/StudInsertController.php
+
+app/Http/Controllers/StudInsertController.php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use DB;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class StudInsertController extends Controller {
+   public function insertform(){
+      return view('stud_create');
+   }
+	
+   public function insert(Request $request){
+      $name = $request->input('stud_name');
+      DB::insert('insert into student (name) values(?)',[$name]);
+      echo "Record inserted successfully.<br/>";
+      echo '<a href = "/insert">Click Here</a> to go back.';
+   }
+}
+Step 4 − Create a view file called resources/views/stud_create.php and copy the following code in that file.
+
+resources/views/stud_create.php
+
+<html>
+   <head>
+      <title>Student Management | Add</title>
+   </head>
+
+   <body>
+      <form action = "/create" method = "post">
+         <input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
+         <table>
+            <tr>
+               <td>Name</td>
+               <td><input type='text' name='stud_name' /></td>
+            </tr>
+            <tr>
+               <td colspan = '2'>
+                  <input type = 'submit' value = "Add student"/>
+               </td>
+            </tr>
+         </table>
+      </form>
+      
+   </body>
+</html>
+Step 5 − Add the following lines in app/Http/routes.php.
+
+app/Http/routes.php
+
+Route::get('insert','StudInsertController@insertform');
+Route::post('create','StudInsertController@insert');
+Step 6 − Visit the following URL to insert record in database.
+
+http://localhost:8000/insert
+Step 7 − The output will appear as shown in the following image.
+
+
+
+
+
