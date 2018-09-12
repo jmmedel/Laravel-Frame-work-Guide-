@@ -1,0 +1,82 @@
+
+Laravel - Session
+Advertisements
+ Previous Page Next Page  
+Sessions are used to store information about the user across the requests. Laravel provides various drivers like file, cookie, apc, array, Memcached, Redis, and database to handle session data. By default, file driver is used because it is lightweight. Session can be configured in the file stored at config/session.php.
+
+Accessing Session Data
+To access the session data, we need an instance of session which can be accessed via HTTP request. After getting the instance, we can use the get() method, which will take one argument, key, to get the session data.
+
+$value = $request->session()->get('key');
+You can use all() method to get all session data instead of get() method.
+
+Storing Session Data
+Data can be stored in session using the put() method. The put() method will take two arguments, the “key” and the “value”.
+
+$request->session()->put('key', 'value');
+Deleting Session Data
+The forget() method is used to delete an item from the session. This method will take key as the argument.
+
+$request->session()->forget('key');
+Use flush() method instead of forget() method to delete all session data. Use the pull() method to retrieve data from session and delete it afterwards. The pull() method will also take key as the argument. The difference between the forget() and the pull() method is that forget() method will not return the value of the session and pull() method will return it and delete that value from session.
+
+Example
+Step 1 − Create a controller called SessionController by executing the following command.
+
+php artisan make:controller SessionController --plain
+Step 2 − After successful execution, you will receive the following output −
+
+SessionController
+Step 3 − Copy the following code in a file at
+
+app/Http/Controllers/SessionController.php.
+
+app/Http/Controllers/SessionController.php
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
+class SessionController extends Controller {
+   public function accessSessionData(Request $request){
+      if($request->session()->has('my_name'))
+         echo $request->session()->get('my_name');
+      else
+         echo 'No data in the session';
+   }
+   public function storeSessionData(Request $request){
+      $request->session()->put('my_name','Virat Gandhi');
+      echo "Data has been added to session";
+   }
+   public function deleteSessionData(Request $request){
+      $request->session()->forget('my_name');
+      echo "Data has been removed from session.";
+   }
+}
+Step 4 − Add the following lines at app/Http/routes.php file.
+
+app/Http/routes.php
+
+Route::get('session/get','SessionController@accessSessionData');
+Route::get('session/set','SessionController@storeSessionData');
+Route::get('session/remove','SessionController@deleteSessionData');
+Step 5 − Visit the following URL to set data in session.
+
+http://localhost:8000/session/set
+Step 6 − The output will appear as shown in the following image.
+
+Data in Session
+Step 7 − Visit the following URL to get data from session.
+
+http://localhost:8000/session/get
+Step 8 − The output will appear as shown in the following image.
+
+Virat Gandhi
+Step 9 − Visit the following URL to remove session data.
+
+http://localhost:8000/session/remove
+Step 10 − You will see a message as shown in the following image.
