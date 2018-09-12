@@ -1,0 +1,43 @@
+
+Laravel - Error Handling
+Advertisements
+ Previous Page Next Page  
+Most web applications have specific mechanisms for error handling. Using these, they track errors and exceptions, and log them to analyze the performance. In this chapter, you will read about error handling in Laravel applications.
+
+Important Points
+Before proceeding further to learn in detail about error handling in Laravel, please note the following important points −
+
+For any new project, Laravel logs errors and exceptions in the App\Exceptions\Handler class, by default. They are then submitted back to the user for analysis.
+
+When your Laravel application is set in debug mode, detailed error messages with stack traces will be shown on every error that occurs within your web application.
+
+Error Log
+By default, debug mode is set to false and you can change it to true. This enables the user to track all errors with stack traces.
+
+App Debug
+The configuration of Laravel project includes the debug option which determines how much information about an error is to be displayed to the user. By default in a web application, the option is set to the value defined in the environment variables of the .env file.
+
+The value is set to true in a local development environment and is set to false in a production environment.
+
+If the value is set to true in a production environment, the risk of sharing sensitive information with the end users is higher.
+
+Error Log
+Logging the errors in a web application helps to track them and in planning a strategy for removing them. The log information can be configured in the web application in config/app.php file. Please note the following points while dealing with Error Log in Laravel −
+
+Laravel uses monolog PHP logging library.
+
+The logging parameters used for error tracking are single, daily, syslog and errorlog.
+
+For example, if you wish to log the error messages in log files, you should set the log value in your app configuration to daily as shown in the command below −
+
+'log' => env('APP_LOG',’daily’),
+If the daily log mode is taken as the parameter, Laravel takes error log for a period of 5 days, by default. If you wish to change the maximum number of log files, you have to set the parameter of log_max_files in the configuration file to a desired value.
+
+‘log_max_files’ => 25;
+Severity Levels
+As Laravel uses monolog PHP logging library, there are various parameters used for analyzing severity levels. Various severity levels that are available are error, critical, alert and emergency messages. You can set the severity level as shown in the command below −
+
+'log_level' => env('APP_LOG_LEVEL', 'error')
+
+
+
