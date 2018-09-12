@@ -1,0 +1,32 @@
+
+
+Laravel - Understanding Release Process
+Advertisements
+ Previous Page Next Page  
+Every web application framework has its own version history and it is always being updated and maintained. Every latest version brings new functionality and functions which are either changed or deprecated, so it is important that you know which version will be suitable for your projects.
+
+When it comes to Laravel, there are two active versions as given below −
+
+Laravel 4- released in May 2013
+Laravel 5.1- released in February 2015
+Laravel 5.1 also includes various releases with the latest version of Laravel 5.1.5 which includes all the robust features for web development. The roadmap of Laravel or the version release is shown in the image below −
+
+Laravel Release Process
+The following points are worth notable in the context of understanding the release process of Laravel −
+
+The old directory of app/models is removed in Laravel 5.1.
+
+All the controllers, middleware and requests are grouped within a directory under the app/Http folder.
+
+A new folder namely Providers directory is replaced with the app/start files in the previous versions of Laravel 4.x.
+
+All the language files and views are moved to the resources directory.
+
+New artisan command route:cache is used for registration of new routes and is included with the release of Laravel 5.1 and further versions.
+
+Laravel supports HTTP middleware and also includes CSRF tokens and authentication model.
+
+All the authentication models are located under one directory namely resources/views/auth. It includes user registration, authentication and password controllers.
+
+
+
