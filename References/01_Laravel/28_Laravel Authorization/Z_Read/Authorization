@@ -1,0 +1,54 @@
+Laravel - Authorization
+Advertisements
+ Previous Page Next Page  
+In the previous chapter, we have studied about authentication process in Laravel. This chapter explains you the authorization process in Laravel.
+
+Difference between Authentication and Authorization
+Before proceeding further into learning about the authorization process in Laravel, let us understand the difference between authentication and authorization.
+
+In authentication, the web application or a system verifies the user through defined credentials. If the credentials match as per the records, they are authenticated, or else they are not.
+
+When we describe the term authorization, it solely describes the verification if the authenticated users can access the resources that is defined for them. In other words, it verifies their rights and permissions over the requested and defined resources. If the authenticated users, can access the resources as defined, it means that they are authorized.
+
+Thus, authentication involves checking the validity of the user credentials, and authorization involves checking the rights and permissions over the resources that an authenticated user has.
+
+Authorization Mechanism in Laravel
+Laravel provides a simple mechanism for authorization that contains two primary ways, namely Gates and Policies.
+
+Writing Gates and Policies
+Gates are used to determine if a user is authorized to perform a specified action. They are typically defined in App/Providers/AuthServiceProvider.php using Gate facade. Gates are also functions which are declared for performing authorization mechanism.
+
+Policies are declared within an array and are used within classes and methods which use authorization mechanism.
+
+The following lines of code explain you how to use Gates and Policies for authorizing a user in a Laravel web application. Note that in this example, the boot function is used for authorizing the users.
+
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Contracts\Auth\Access\Gate as GateContract;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
+class AuthServiceProvider extends ServiceProvider{
+   /**
+      * The policy mappings for the application.
+      *
+      * @var array
+   */
+   
+   protected $policies = [
+      'App\Model' => 'App\Policies\ModelPolicy',
+   ];
+   
+   /**
+      * Register any application authentication / authorization services.
+      *
+      * @param \Illuminate\Contracts\Auth\Access\Gate $gate
+      * @return void
+   */
+   
+   public function boot(GateContract $gate){
+      $this->registerPolicies($gate);
+      //
+   }
+}

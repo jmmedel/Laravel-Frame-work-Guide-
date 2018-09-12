@@ -1,0 +1,81 @@
+
+Laravel - Authentication
+Advertisements
+ Previous Page Next Page  
+Authentication is the process of identifying the user credentials. In web applications, authentication is managed by sessions which take the input parameters such as email or username and password, for user identification. If these parameters match, the user is said to be authenticated.
+
+This chapter explains you the authentication process in Laravel web applications.
+
+Command
+Laravel uses the following command to create forms and the associated controllers to perform authentication −
+
+php artisan make:auth
+This command helps in creating authentication scaffolding successfully, as shown in the following screenshot −
+
+Authentication
+Controller
+The controller which is used for the authentication process is HomeController.
+
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller{
+   /**
+      * Create a new controller instance.
+      *
+      * @return void
+   */
+   
+   public function __construct(){
+      $this->middleware('auth');
+   }
+   
+   /**
+      * Show the application dashboard.
+      *
+      * @return \Illuminate\Http\Response
+   */
+   
+   public function index(){
+      return view('home');
+   }
+}
+As a result, the scaffold application generated creates the login page and the registration page for performing authentication. They are as shown below −
+
+Login
+Login Page
+Registration
+Register
+Manually Authenticating Users
+Laravel uses the Auth façade which helps in manually authenticating the users. It includes the attempt method to verify their email and password.
+
+Consider the following lines of code for LoginController which includes all the functions for authentication −
+
+<?php
+
+// Authentication mechanism
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Auth;
+
+class LoginController extends Controller{
+   /**
+      * Handling authentication request
+      *
+      * @return Response
+   */
+   
+   public function authenticate() {
+      if (Auth::attempt(['email' => $email, 'password' => $password])) {
+      
+         // Authentication passed...
+         return redirect()->intended('dashboard');
+      }
+   }
+}
+
+
