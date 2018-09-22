@@ -11,6 +11,11 @@
 |
 */
 
+// This is the home page
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
