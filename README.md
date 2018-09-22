@@ -15,7 +15,8 @@ Laravel Frame work Guide
 
 # Laravel How To Note 
 
-1. how to make Controller using php artisan
+# Route 
+1. How to make Controller using php artisan
 php artisan make:controller PageController/TestController
 The PageController is the folder and TestController is Controller file
 
@@ -23,4 +24,6 @@ The PageController is the folder and TestController is Controller file
  https://stackoverflow.com/questions/18850542/laravel-controller-subfolder-routing
 
 
+# Blade Template Engine 
+1. 
 
