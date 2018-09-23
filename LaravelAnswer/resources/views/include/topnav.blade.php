@@ -1,26 +1,27 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Laravel Answers</a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="{{ route('index') }}">Home</a></li>
-        <li><a href="#">Recent</a></li>
-        <li><a href="#">Popular</a></li>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="{{ route('index') }}">Kagaya blog</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      Menu
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" {{ Request::route()-> getName()== 'index' ? "style=color:red;" : "" }}  href="{{ route('index') }}">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" {{ Request::route()-> getName()== 'about' ? "style=color:red;" : "" }}  href="{{ route('about') }}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" {{ Request::route()-> getName()== 'contact' ? "style=color:red;" : "" }}  href="{{ route('contact') }}">Contact</a>
+        </li>
+
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <a href="#" class="btn btn-primary" style="margin-top:5px;">Ask A Question</a>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+  </div>
 </nav>

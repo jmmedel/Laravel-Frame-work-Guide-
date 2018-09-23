@@ -9,10 +9,18 @@
 
         <!-- Fonts -->
         <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
+
     </head>
     <body>
 
+
        @include('include.topnav')
-      @yield('content')
+       @include('include.messages')
+       @yield('content')
+       @include('include.footer')
+
+
+
+     
     </body>
 </html>
