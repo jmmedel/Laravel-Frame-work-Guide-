@@ -1,26 +1,24 @@
-<nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Laravel Answers</a>
-          </div>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="{{ route('index') }}">Home</a></li>
-              <li><a href="#">Recent</a></li>
-              <li><a href="#">Popular</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <a href="#" class="btn btn-primary" style="margin-top:5px;">Ask A Question</a>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-</nav>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">Question Answer</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="#home" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#explore-head-section" class="nav-link">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a href="#create-head-section" class="nav-link">Create</a>
+          </li>
+          <li class="nav-item">
+            <a href="#share-head-section" class="nav-link">Share</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
