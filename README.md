@@ -15,7 +15,7 @@ Laravel Frame work Guide
 
 # Laravel How To Note 
 
-# Route 
+# Controller  
 1. How to make Controller using php artisan
 php artisan make:controller PageController/TestController
 The PageController is the folder and TestController is Controller file
@@ -24,6 +24,20 @@ The PageController is the folder and TestController is Controller file
  https://stackoverflow.com/questions/18850542/laravel-controller-subfolder-routing
 
 
+3. This is command is make CRUD generate all the code we need we dont need to type it all. 
+
+php artisan make:controller QuestionController --resource
+
+
+#Route
+
+1. How to See all the Route 
+php artisan route:list 
+
+
 # Blade Template Engine 
 1. 
+
+
+
 

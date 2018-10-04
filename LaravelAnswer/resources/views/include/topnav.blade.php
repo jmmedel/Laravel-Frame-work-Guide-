@@ -1,22 +1,22 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" id="main-nav">
     <div class="container">
-      <a href="index.html" class="navbar-brand">Question Answer</a>
+      <a href="index.html" class="navbar-brand">Laravel Answer</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="#home" class="nav-link">Home</a>
+            <a href="{{ route('index') }}" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#explore-head-section" class="nav-link">Explore</a>
+            <a href="#" class="nav-link">Recent</a>
           </li>
           <li class="nav-item">
-            <a href="#create-head-section" class="nav-link">Create</a>
+            <a href="#" class="nav-link">Popular</a>
           </li>
           <li class="nav-item">
-            <a href="#share-head-section" class="nav-link">Share</a>
+            <a href="#" class="nav-link">Ask A Question </a>
           </li>
         </ul>
       </div>
