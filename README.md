@@ -48,6 +48,8 @@ php artisan migrate
 
 # Model 
 
+1. How to Create a Model 
+php artisan make:model Question
 
 # Blade Template Engine 
 1. 
