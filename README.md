@@ -35,6 +35,20 @@ php artisan make:controller QuestionController --resource
 php artisan route:list 
 
 
+
+#Migration 
+
+1. How to create a migration 
+php artisan make:migration create_question_table
+
+2. run the migration 
+php artisan migrate 
+
+
+
+# Model 
+
+
 # Blade Template Engine 
 1. 
 
