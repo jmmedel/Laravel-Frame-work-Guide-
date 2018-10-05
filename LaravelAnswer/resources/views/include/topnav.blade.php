@@ -16,7 +16,7 @@
             <a href="#" class="nav-link">Popular</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Ask A Question </a>
+            <a href="{{ route('question.create') }}" class="nav-link">Ask A Question </a>
           </li>
         </ul>
       </div>
