@@ -1,12 +1,14 @@
 
 @extends('layouts.template')
 @section('content')
-  <div class="container">
-    <h1>{{ $question->title }}</h1>
-    <p class="lead">
-      {{ $question->description }}
-    </p>
 
     <hr />
-  </div>
+    <hr />
+    <hr />
+    <h1>{{ $question->title }}</h1>
+    <p class="well">
+    {{ $question->description }}
+    </p>
+    <hr />
+
 @endsection

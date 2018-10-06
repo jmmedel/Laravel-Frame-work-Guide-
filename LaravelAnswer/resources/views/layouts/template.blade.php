@@ -17,9 +17,12 @@
     <body>
 
 
-       @include('include.topnav')
+        @include('include.topnav')
        @include('include.messages')
-       @yield('content')
+       <div class="container">
+            @yield('content')
+       </div>
+
        @include('include.footer')
 
 

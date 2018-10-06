@@ -10,7 +10,7 @@
             <a href="{{ route('index') }}" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Recent</a>
+            <a href="{{ route('question.index') }}" class="nav-link">Recent</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Popular</a>

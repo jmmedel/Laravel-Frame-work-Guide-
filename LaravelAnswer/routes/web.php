@@ -12,11 +12,10 @@
 */
 
 // This is the home page
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+
+Route::get('/','PageController\PageController@index')->name('index');
 Route::get('/about','PageController\PageController@about')->name('about');
 Route::get('/contact','PageController\PageController@contact')->name('contact');
 Route::post('/contact','PageController\PageController@submitContact')->name('submitContact');
-Route::resource('question','QuestionController');
+Route::resource('/question','QuestionController');
 
