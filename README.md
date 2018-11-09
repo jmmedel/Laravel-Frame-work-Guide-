@@ -52,7 +52,7 @@ php artisan migrate
 php artisan make:model Question
 
 2. Create A Model with Migration
-php artisan make:model Question
+php artisan make:model Question -m
 
 
 # Blade Template Engine 
