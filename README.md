@@ -28,6 +28,8 @@ The PageController is the folder and TestController is Controller file
 
 php artisan make:controller QuestionController --resource
 
+4. Make Controller default way 
+ php artisan make:controller Blogcontroller
 
 #Route
 
@@ -59,6 +61,9 @@ php artisan make:model Question -m
 1. 
 
 
+# Using php artisan tinker
+1. How to create Fake data to the database
+ 
 
 
 Need To read 18
