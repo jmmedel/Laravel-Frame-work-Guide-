@@ -51,6 +51,10 @@ php artisan migrate
 1. How to Create a Model 
 php artisan make:model Question
 
+2. Create A Model with Migration
+php artisan make:model Question
+
+
 # Blade Template Engine 
 1. 
 
