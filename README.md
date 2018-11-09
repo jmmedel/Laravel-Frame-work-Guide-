@@ -6,7 +6,7 @@ Laravel Frame work Guide
 # Laravel_Frame_Work_GUIDE
 
 #How to use 
-1. install  (composer install)
+1. install  (composer install) and *npm install() 
 2. php artisan key:generate 
 3. php artisan serve 
 
