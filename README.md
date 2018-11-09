@@ -58,12 +58,15 @@ php artisan make:model Question -m
 
 
 # Blade Template Engine 
-1. 
+1. You have to make your layout to extends by other fails
+
 
 
 # Using php artisan tinker
 1. How to create Fake data to the database
  
 
+# CSTF
+1. using @cstf in the post method form all ways put 
 
 Need To read 18
