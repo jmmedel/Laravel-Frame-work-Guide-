@@ -87,5 +87,8 @@ how to return view and add the variable to the blade engine
 2. using key value to add variable to the blade engine
  Like this
 return view('blogs.edit', ['blog' => $blog, 'categories' => $categories, 'filtered' => $filtered]);
-
+#   Using Request
+1. php artisan make:request [name]
+   php artisan make:request AskQuestion
+                      
 Need To read 18
